@@ -11,12 +11,34 @@
   --color-navy: #1e4d85;
 }
 
-body {
-  background: var(--color-ink);
-  color: #f5f5f5;
-  font-family: var(--font-body);
+@layer base {
+  body {
+    background: var(--color-ink);
+    color: #f5f5f5;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
 }
 
-h1, h2, h3 {
-  font-family: var(--font-display);
+@layer components {
+  .card {
+    @apply bg-panel border border-line rounded-2xl p-4 transition-colors hover:border-neutral-600;
+  }
+  .btn-primary {
+    @apply bg-emerald text-ink font-semibold rounded-xl px-5 py-3 transition-opacity hover:opacity-90 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply border border-line text-neutral-200 rounded-xl px-5 py-3 hover:border-neutral-500;
+  }
+  .pill {
+    @apply border rounded-full px-3 py-1 bg-panel whitespace-nowrap;
+  }
+  .nav-item {
+    @apply flex flex-col items-center gap-1 py-3 text-xs font-medium;
+  }
+  .select {
+    @apply mt-1 w-full bg-panel border border-line rounded-xl px-3 py-2 outline-none focus:border-emerald;
+  }
 }
